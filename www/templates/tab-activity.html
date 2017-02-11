@@ -1,50 +1,71 @@
-<ion-view view-title="Dashboard">
+<!DOCTYPE html>
+
+
+
+
+<ion-view view-title="Activities">
   <ion-content class="padding">
-    <h2>Welcome to Ionic</h2>
-    <p>
-      This is the Ionic starter for tabs-based apps. For other starters and ready-made templates, check out the <a href="http://market.ionic.io/starters" target="_blank">Ionic Market</a>.
-    </p>
-    <p>
-      To edit the content of each tab, edit the corresponding template file in <code>www/templates/</code>. This template is <code>www/templates/tab-dash.html</code>
-    </p>
-    <p>
-      If you need help with your app, join the Ionic Community on the <a href="http://forum.ionicframework.com" target="_blank">Ionic Forum</a>. Make sure to <a href="http://twitter.com/ionicframework" target="_blank">follow us</a> on Twitter to get important
-      updates and announcements for Ionic developers.
-    </p>
-    <p>
-      For help sending push notifications, join the <a href="https://apps.ionic.io/signup" target="_blank">Ionic Platform</a> and check out <a href="http://docs.ionic.io/docs/push-overview" target="_blank">Ionic Push</a>. We also have other services available.
-    </p>
+
+    <h1>&nbsp;<b> <font size=10>  Activities </font></b></h1>
+
+
+
     <ion-list>
       <div class="item">
-        <button class="button"> Default </button>
+        <Center>
+            <font size="6"><b>World Sleep Day Gathering</b></font>
+            <div> <font size="4"> </br> </font>  </div>
+            <div> <font size="4">March 17 is the date for the 2017 World Sleep Day <br />
+                                Sleepathon is sponsoring a gathering in the
+                               <br /> University Center to celebrate this!</font> </div>
+            <p><br    /></p>
+        </Center>
+
+        <div class="col text-center">
+        <button class="button button-stable button-large"
+                onclick = "window.location.href='http://worldsleepday.org/'"> View Info </button>
+          <input type="button" class="button button-positive button-large" value="Enroll Now" onclick="return changeEnrollStatus(this);" />
+        </div>
       </div>
+
       <div class="item">
-        <button class="button button-light"> button-light </button>
+        <center>
+            <font size="6"><b>Students Council Cup</b></font>
+            <div> <font size="4"> </br> </font>  </div>
+            <div> <font size="4">This is a competition run by the Carnegie <br />Mellon University Students Council</font> </div>
+            <p><br    /></p>
+        </center>
+
+        <div class="col text-center">
+        <button class="button button-stable button-large"
+                onclick = "window.location.href='http://www.cmu.edu'"> View Info </button>
+          <input type="button" class="button button-positive button-large" value="Enroll Now" onclick="return changeEnrollStatus(this);" />
+        </div>
       </div>
+
+
       <div class="item">
-        <button class="button button-stable"> button-stable </button>
+        <Center>
+            <font size="6"><b>Tartan Sleeping Contest</b></font>
+            <div> <font size="4"> </br> </font>  </div>
+            <div> <font size="4">This competition is ran by Carnegie <br />Mellon University's Provost
+                                  Prizes includes a 5$ <br />
+                                  coupon to Au Bon Pain at Skibo Cafe!</font> </div>
+
+            <p><br    /></p>
+        </Center>
+
+        <div class="col text-center">
+
+        <button class="button button-stable button-large"
+                onclick = "window.location.href='http://www.cmu.edu'"> View Info </button>
+        <input type="button" class="button button-positive button-large" value="Enroll Now" onclick="return changeEnrollStatus(this);" />
+        </div>
       </div>
-      <div class="item">
-        <button class="button button-positive"> button-positive </button>
-      </div>
-      <div class="item">
-        <button class="button button-calm"> button-calm </button>
-      </div>
-      <div class="item">
-        <button class="button button-balanced"> button-balanced </button>
-      </div>
-      <div class="item">
-        <button class="button button-energized"> button-energized </button>
-      </div>
-      <div class="item">
-        <button class="button button-assertive"> button-assertive </button>
-      </div>
-      <div class="item">
-        <button class="button button-royal"> button-royal </button>
-      </div>
-      <div class="item">
-        <button class="button button-dark"> button-dark </button>
-      </div>
-    </ion-list>
-  </ion-content>
+
+
+
+
+</ion-list>
+</ion-content>
 </ion-view>
