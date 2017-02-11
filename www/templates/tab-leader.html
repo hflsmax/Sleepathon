@@ -14,11 +14,11 @@
     <ion-list>
           <ion-item ng-repeat="leader in leaders" type="item-text-wrap" href="#/tab/leader/{{leader.id}}">
               <p>&nbsp;<img ng-src = img/{{$index}}.png style="width:30px;height:30px;">&nbsp;&nbsp;<img ng-src="{{leader.face}}" style="width:30px;height:30px;" align="middle">
-                        &nbsp; &nbsp;<font size = 5 color="white"><b>{{leader.name}}</b></font>
+                        &nbsp; &nbsp;<font size = 5.5 color="white"><b>{{leader.name}}</b></font>
                 </p>
-              <p><font size = 3 color="white">&nbsp;&nbsp;Current Sleeping Streak: <b>{{leader.current}}</b> days</font>
+              <p><font size = 2.5 color="white">&nbsp;&nbsp;Current Sleeping Streak: <b>{{leader.current}}</b> days</font>
                 <br />
-                <font size = 3 color="white">&nbsp;&nbsp;Longest Sleeping Streak: <b>{{leader.longest}}</b> days</font>
+                <font size = 2.5 color="white">&nbsp;&nbsp;Longest Sleeping Streak: <b>{{leader.longest}}</b> days</font>
               </p>
               <i class="icon  icon-accessory"></i>
           </ion-item>
