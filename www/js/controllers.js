@@ -94,10 +94,9 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LeaderCtrl', function($scope, Leaders,startFrom3) {
+.controller('LeaderCtrl', function($scope, Leaders) {
     $scope.leaders = Leaders.all();
-    alert("hello");
-    $scope.startFrom3 =leaders.all().slice(3,10);
+    $scope.currentIndex = 0;
 
   })
 

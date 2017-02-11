@@ -144,7 +144,7 @@ angular.module('starter.services', [])
     id : 0,
     name: 'Max Ma',
     current : 10,
-    Longest : 233,
+    longest : 233,
     face: 'img/max.png'
   }, {
     id : 1,
@@ -186,7 +186,7 @@ angular.module('starter.services', [])
     id : 0,
     name: 'Max Ma',
     current : 10,
-    Longest : 233,
+    longest : 233,
     face: 'img/max.png'
   }, {
     id : 1,

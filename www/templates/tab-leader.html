@@ -12,43 +12,16 @@
       <br />
     </p>
     <ion-list>
-        <ion-item>
-            <p><img ng-src="img/crown-gold.png" style="width:50px;height:50px;">
-                  <img src="img/max.png" style="width:50px;height:50px;" align="middle">
-                  <font size=9 color="gold"> &nbsp;Max Ma </font></p>
-
-                <p> <font size = 3 color="white">&nbsp;&nbsp;Current sleeping streak: <b>10</b> days</font> <br />
-              <font size = 3 color="white">&nbsp;&nbsp;Longest sleeping streak: <b>233</b>  days</font></p>
-
-                </ion-item>
-                <ion-item>
-                  <p><img ng-src="img/crown-silver.png" style="width:50px;height:50px;">
-                    <img src="img/yue.png" style="width:50px;height:50px;" align="middle">
-                    <font size=9 color="silver">&nbsp;Yue Yin</font></p>
-                    <p> <font size = 3 color="white">&nbsp;&nbsp;Current sleeping streak: <b>8</b> days</font> <br />
-                  <font size = 3 color="white">&nbsp;&nbsp;Longest sleeping streak: <b>1222</b>  days</font></p>
-                </ion-item>
-                <ion-item>
-                  <p><img ng-src="img/crown-brown.png" style="width:50px;height:50px;">
-                    <img src="img/Avatar.jpg" style="width:50px;height:50px;" align="middle">
-                    <font size=9 color="Goldenrod">&nbsp;Mike Chen</font></p>
-                    <p> <font size = 3 color="white">&nbsp;&nbsp;Current sleeping streak: <b>1</b> days</font> <br />
-                  <font size = 3 color="white">&nbsp;&nbsp;Longest sleeping streak: <b>18</b>  days</font></p>
-                </ion-item>
-                <ion-item>
-                  <p><img ng-src="img/4.svg" style="width:50px;height:50px;">
-                    <img src="img/toffer.png" style="width:50px;height:50px;" align="middle">
-                    <font size=9 color="grey">&nbsp;Toffer</font></p>
-                    <p> <font size = 3 color="white">&nbsp;&nbsp;Current sleeping streak: <b>0</b> days</font> <br />
-                  <font size = 3 color="white">&nbsp;&nbsp;Longest sleeping streak: <b>18</b>  days</font></p>
-                </ion-item>
-
-          <ion-item class=" item-avatar " ng-repeat="leader in leaders" type="item-text-wrap" href="#/tab/startFrom3/{{leader.id}}">
-
-              <p><img ng-src="{{leader.face}}" style="width:50px;height:50px;" align="middle"> <font size = 7 color="white">{{leader.name}}</font></p>
-              <p>{{leader.current}}</p>
+          <ion-item ng-repeat="leader in leaders" type="item-text-wrap" href="#/tab/leader/{{leader.id}}">
+              <p>&nbsp;<img ng-src = img/{{$index}}.png style="width:50px;height:50px;">&nbsp;&nbsp;<img ng-src="{{leader.face}}" style="width:50px;height:50px;" align="middle">
+                        &nbsp; &nbsp;<font size = 8 color="white"><b>{{leader.name}}</b></font>
+                </p>
+              <p><font size = 3 color="white">&nbsp;&nbsp;Current Sleeping Streak: <b>{{leader.current}}</b> days</font>
+                <br />
+                <font size = 3 color="white">&nbsp;&nbsp;Longest Sleeping Streak: <b>{{leader.longest}}</b> days</font>
+              </p>
               <i class="icon  icon-accessory"></i>
-            </ion-item>
+          </ion-item>
 
 
         </ion-list>
