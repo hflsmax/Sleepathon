@@ -55,7 +55,7 @@ angular.module('starter.services', [])
     id : 0,
     name: 'Max Ma',
     current : 10,
-    Longest : 233,
+    longest : 233,
     face: 'img/max.png'
   }, {
     id : 1,
@@ -97,7 +97,7 @@ angular.module('starter.services', [])
     id : 0,
     name: 'Max Ma',
     current : 10,
-    Longest : 233,
+    longest : 233,
     face: 'img/max.png'
   }, {
     id : 1,
@@ -193,7 +193,7 @@ angular.module('starter.services', [])
     all: function() {
       return user;
     },
-    
+
     get: function(userID) {
       for (var i = 0; i < user.length; i++) {
         if (user[i].id === parseInt(userID)) {
