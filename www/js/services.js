@@ -100,27 +100,32 @@ angular.module('starter.services', [])
     id: 0,
     name: 'Ben Sparrow',
     post: 'You on your way?',
-    face: 'img/ben.png'
+    face: 'img/ben.png',
+    date: new Date(2017, 1, 1, 1, 1)
   }, {
     id: 1,
     name: 'Max Lynx',
     post: 'Hey, it\'s me',
-    face: 'img/max.png'
+    face: 'img/max.png',
+    date: new Date(2017, 1, 1, 1, 1)
   }, {
     id: 2,
     name: 'Adam Bradleyson',
     post: 'I should buy a boat',
-    face: 'img/adam.jpg'
+    face: 'img/adam.jpg',
+    date: new Date(2017, 1, 1, 1, 1)
   }, {
     id: 3,
     name: 'Perry Governor',
     post: 'Look at my mukluks!',
-    face: 'img/perry.png'
+    face: 'img/perry.png',
+    date: new Date(2017, 1, 1, 1, 1)
   }, {
     id: 4,
     name: 'Mike Harrington',
     post: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
+    face: 'img/mike.png',
+    date: new Date(2017, 1, 1, 1, 1)
   }];
 
   return {
@@ -129,17 +134,6 @@ angular.module('starter.services', [])
     },
     add: function(post) {
       posts.push(post)
-    },
-    remove: function(chat) {
-      posts.splice(posts.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < posts.length; i++) {
-        if (posts[i].id === parseInt(chatId)) {
-          return posts[i];
-        }
-      }
-      return null;
     }
   };
 })
@@ -288,7 +282,7 @@ angular.module('starter.services', [])
     all: function() {
       return user;
     },
-    
+
     get: function(userID) {
       for (var i = 0; i < user.length; i++) {
         if (user[i].id === parseInt(userID)) {
