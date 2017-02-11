@@ -30,9 +30,15 @@
           el.value = "Enrolled";
         }
         else {el.value = "Enroll Now";}
+        }
 
-            }
+      function changeSelect(e){
+        var value = e.options[e.selectedIndex].value;
+        var text = e.options[e.selectedIndex].text;
+        console.log(value,text)
+      }
     </script>
+
 
   </head>
   <body ng-app="starter">

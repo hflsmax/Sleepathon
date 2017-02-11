@@ -2,7 +2,6 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-
 .controller('ActivityCtrl', function($scope) {})
 
 .controller('SleepCtrl', function($scope, Chats) {
@@ -28,7 +27,12 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LeaderCtrl', function($scope) {})
+.controller('LeaderCtrl', function($scope, Leaders,startFrom3) {
+    $scope.leaders = Leaders.all();
+    alert("hello");
+    $scope.startFrom3 =leaders.all().slice(3,10);
+
+  })
 
 
 .controller('ChatsCtrl', function($scope, Chats) {
