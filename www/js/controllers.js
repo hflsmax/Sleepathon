@@ -57,7 +57,8 @@ angular.module('starter.controllers', [])
        modal.show();
        MyData.newStart(new Date());
        watchID = navigator.accelerometer.watchAcceleration(accelerometerSuccess,
-                                                       accelerometerError);
+                                                       accelerometerError,
+                                                     { frequency: 50 });
      });
    });
    $scope.motionScore = "No data"
@@ -74,7 +75,8 @@ angular.module('starter.controllers', [])
             'Timestamp: '      + acceleration.timestamp + '\n');
     }
 
-    function accelerometerError() {
+    function accelerometerError(e) {
+      $scope.motionScore = "error" + e;
         alert('onError!');
     }
 
