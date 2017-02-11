@@ -1,3 +1,5 @@
+Hi I'm Max.
+
 # IonicSlate
 A dark metalic ionic theme based on the wonderful [Bootswatch Slate Theme](http://bootswatch.com/slate/)
 
