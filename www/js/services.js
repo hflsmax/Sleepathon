@@ -49,6 +49,95 @@ angular.module('starter.services', [])
   };
 })
 
+.factory('MyInfo', function() {
+  var info = {
+    id: 8,
+    name: "Max Ma",
+    face: 'img/ben.png'
+  }
+  return {
+    id: function() {
+      return info.id;
+    },
+    name: function() {
+      return info.name;
+    },
+    face: function() {
+      return info.face;
+    }
+  }
+})
+
+.factory('MyData', function() {
+  var sleeps = [{
+    start: new Date(2017, 1, 1, 1, 1),
+    end: new Date(2017, 1, 2, 1, 1)
+  },{
+    start: new Date(2017, 1, 1, 1, 1),
+    end: new Date(2017, 1, 2, 1, 1)
+  }]
+  return {
+    all: function() {
+      return sleeps;
+    },
+    newStart: function(date) {
+      sleeps.unshift({start: date, end: null})
+    },
+    newEnd: function(date) {
+      lastObj = sleeps.shift()
+      lastObj.end = date
+      sleeps.unshift(lastObj)
+      console.log(sleeps)
+    }
+  }
+})
+
+.factory('Posts', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var posts = [{
+    id: 0,
+    name: 'Ben Sparrow',
+    post: 'You on your way?',
+    face: 'img/ben.png',
+    date: new Date(2017, 1, 1, 1, 1)
+  }, {
+    id: 1,
+    name: 'Max Lynx',
+    post: 'Hey, it\'s me',
+    face: 'img/max.png',
+    date: new Date(2017, 1, 1, 1, 1)
+  }, {
+    id: 2,
+    name: 'Adam Bradleyson',
+    post: 'I should buy a boat',
+    face: 'img/adam.jpg',
+    date: new Date(2017, 1, 1, 1, 1)
+  }, {
+    id: 3,
+    name: 'Perry Governor',
+    post: 'Look at my mukluks!',
+    face: 'img/perry.png',
+    date: new Date(2017, 1, 1, 1, 1)
+  }, {
+    id: 4,
+    name: 'Mike Harrington',
+    post: 'This is wicked good ice cream.',
+    face: 'img/mike.png',
+    date: new Date(2017, 1, 1, 1, 1)
+  }];
+
+  return {
+    all: function() {
+      return posts;
+    },
+    add: function(post) {
+      posts.push(post)
+    }
+  };
+})
+
 
 .factory('Leaders', function() {
   var leaders = [{

@@ -1,37 +1,43 @@
 <ion-view view-title="Sleep">
+
   <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+    <div class="list">
 
-        <ion-row>
-          <ion-col>
-            <button ion-button icon-left clear small>
-              <ion-icon name="icon ion-thumbsup"></ion-icon>
-              <div>12 Likes</div>
-            </button>
-          </ion-col>
-          <ion-col>
-            <button ion-button icon-left clear small>
-              <ion-icon name="text"></ion-icon>
-              <div>4 Comments</div>
-            </button>
-          </ion-col>
-          <ion-col center text-center>
-            <ion-note>
-              11h ago
-            </ion-note>
-          </ion-col>
-        </ion-row>
+        <a class="item item-avatar"  ng-repeat="chat in chats"  href="#">
+          <img src="{{chat.face}}">
+          <h2>{{chat.name}}</h2>
+          <p>{{chat.post}}</p>
+        </a>
 
-
-      </ion-item>
-    </ion-list>
-    <ion-row>
-      <button ion-button full>Full Button</button>
-    </ion-row>
+    </div>
   </ion-content>
+  <ion-footer-bar align-title="center" class="bar-stable" style="height:10%;">
+    <div class="row">
+      <div class="col text-center" style="height:100%;">
+        <!-- <button class="button button-positive" style="height:80%; width:80%;" ng-click="modal.show()"> Sleep </button> -->
+        <button class="button button-positive" style="height:80%; width:80%;" ng-click="showPopup()"> Sleep </button>
+      </div>
+    </div>
+  </ion-footer-bar>
+  <script id="sleepInputModel.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar class="bar bar-header bar-stable">
+        <h1 class="title">Sleeping</h1>
+        <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+      </ion-header-bar>
+      <ion-content class="padding" style="background-color: #566196;">
+        <div class="list">
+          <div class="row">
+            <div class="col text-center" style="height:100%;">
+              <!-- <button class="button button-positive" style="height:80%; width:80%;" ng-click="modal.show()"> Sleep </button> -->
+              <h1>{{motionScore}}</h1>
+            </div>
+          </div>
+          <button class="button button-full button-stable" ng-click="createPost(post)">Post</button>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+
 </ion-view>
