@@ -123,11 +123,11 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
+      // This will not be used; firebase access happened in controller
       console.log("before")
       return firebase.database().ref('global_post/').once('value').then(function(posts) {
         console.log("get")
-        var array = Object.keys(posts.val()).map(function (key) { return obj[key]; });
-        console.log(posts.val())
+        var array = Object.keys(posts.val()).map(function (key) { return posts.val()[key]; });
         console.log(array);
         return array;
       });
@@ -138,6 +138,7 @@ angular.module('starter.services', [])
       var newPostRef = postRef.push();
       newPostRef.set(post);
       posts.push(post)
+      console.log(post)
     }
   };
 })
