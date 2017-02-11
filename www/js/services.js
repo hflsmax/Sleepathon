@@ -97,32 +97,26 @@ angular.module('starter.services', [])
   // Some fake testing data
   var posts = [{
     id: 0,
-    name: 'Ben Sparrow',
-    post: 'You on your way?',
-    face: 'img/ben.png',
-    date: new Date(2017, 1, 1, 1, 1)
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    post: 'Hey, it\'s me',
+    name: 'Max Ma',
+    post: 'Had a Wonderful dream last night.',
     face: 'img/max.png',
     date: new Date(2017, 1, 1, 1, 1)
   }, {
+    id: 1,
+    name: 'Yue Yin',
+    post: 'Did not get enough sleep...',
+    face: 'img/yue.png',
+    date: new Date(2017, 1, 1, 1, 1)
+  }, {
     id: 2,
-    name: 'Adam Bradleyson',
-    post: 'I should buy a boat',
+    name: 'Toffer',
+    post: 'Sleep Duration: 6 hours',
     face: 'img/adam.jpg',
     date: new Date(2017, 1, 1, 1, 1)
   }, {
-    id: 3,
-    name: 'Perry Governor',
-    post: 'Look at my mukluks!',
-    face: 'img/perry.png',
-    date: new Date(2017, 1, 1, 1, 1)
-  }, {
     id: 4,
-    name: 'Mike Harrington',
-    post: 'This is wicked good ice cream.',
+    name: 'Mike Chen',
+    post: 'Sleep Duration: 8 hours',
     face: 'img/mike.png',
     date: new Date(2017, 1, 1, 1, 1)
   }];
@@ -154,7 +148,7 @@ angular.module('starter.services', [])
     id : 0,
     name: 'Max Ma',
     current : 10,
-    Longest : 233,
+    longest : 233,
     face: 'img/max.png'
   }, {
     id : 1,
@@ -196,7 +190,7 @@ angular.module('starter.services', [])
     id : 0,
     name: 'Max Ma',
     current : 10,
-    Longest : 233,
+    longest : 233,
     face: 'img/max.png'
   }, {
     id : 1,

@@ -48,7 +48,8 @@ angular.module('starter.controllers', [])
      var newPost = { id: MyInfo.id(), name: MyInfo.name(),
                        face: MyInfo.face(), post: post, date: new Date()}
      Posts.add(newPost);
-
+     justSlept = true;
+     setTimeout(function(){justSlept = false}, 3000);
      $ionicModal.fromTemplateUrl('sleepInputModel.html', {
        scope: $scope
      }).then(function(modal) {
@@ -58,15 +59,22 @@ angular.module('starter.controllers', [])
        watchID = navigator.accelerometer.watchAcceleration(accelerometerSuccess,
                                                        accelerometerError,
                                                      { frequency: 50 });
+
      });
    });
+
+
+
    $scope.motionScore = "No data"
+
    function accelerometerSuccess(acceleration) {
-     var score =acceleration.x + acceleration.y + acceleration.z;
-     $scope.motionScore = score;
-     var threshold = 100000;
+     var score = Math.abs(acceleration.z);
+     $scope.motionScore = "zzZ";
+     var threshold = 15;
      if (score > threshold) {
+       if (!justSlept){
        stopSleep();
+       }
      }
     }
 
@@ -94,10 +102,9 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LeaderCtrl', function($scope, Leaders,startFrom3) {
+.controller('LeaderCtrl', function($scope, Leaders) {
     $scope.leaders = Leaders.all();
-    alert("hello");
-    $scope.startFrom3 =leaders.all().slice(3,10);
+    $scope.currentIndex = 0;
 
   })
 
