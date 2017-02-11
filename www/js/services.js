@@ -136,7 +136,6 @@ angular.module('starter.services', [])
       lastObj = sleeps.shift()
       lastObj.end = date
       sleeps.unshift(lastObj)
-      console.log(sleeps)
     }
   }
 })
@@ -173,10 +172,22 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
-      return posts;
+      // This will not be used; firebase access happened in controller
+      console.log("before")
+      return firebase.database().ref('global_post/').once('value').then(function(posts) {
+        console.log("get")
+        var array = Object.keys(posts.val()).map(function (key) { return posts.val()[key]; });
+        console.log(array);
+        return array;
+      });
+      // return posts;
     },
     add: function(post) {
+      var postRef = firebase.database().ref('global_post/')
+      var newPostRef = postRef.push();
+      newPostRef.set(post);
       posts.push(post)
+      console.log(post)
     }
   };
 })

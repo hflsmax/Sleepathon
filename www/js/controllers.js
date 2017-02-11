@@ -12,11 +12,12 @@ angular.module('starter.controllers', [])
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-
-  $scope.chats = Posts.all();
-  $scope.remove = function(chat) {
-    Posts.remove(chat);
-  };
+  firebase.database().ref('global_post/').once('value').then(function(posts) {
+    console.log("get")
+    var array = Object.keys(posts.val()).map(function (key) { return posts.val()[key]; });
+    console.log(array);
+    $scope.chats = array;
+  });
 
 
 
@@ -45,8 +46,10 @@ angular.module('starter.controllers', [])
      ]
    });
    myPopup.then(function(post) {
+     var localTime = new Date()
      var newPost = { id: MyInfo.id(), name: MyInfo.name(),
-                       face: MyInfo.face(), post: post, date: new Date()}
+                       face: MyInfo.face(), post: post, date: localTime.toLocaleTimeString()
+}
      Posts.add(newPost);
      justSlept = true;
      setTimeout(function(){justSlept = false}, 3000);
