@@ -46,13 +46,12 @@ angular.module('starter.controllers', [])
    });
    myPopup.then(function(post) {
      var newPost = { id: MyInfo.id(), name: MyInfo.name(),
-                       face: MyInfo.face(), post: post}
+                       face: MyInfo.face(), post: post, date: new Date()}
      Posts.add(newPost);
 
      $ionicModal.fromTemplateUrl('sleepInputModel.html', {
        scope: $scope
      }).then(function(modal) {
-       console.log(modal)
        $scope.modal = modal;
        modal.show();
        MyData.newStart(new Date());
@@ -69,10 +68,6 @@ angular.module('starter.controllers', [])
      if (score > threshold) {
        stopSleep();
      }
-      alert('Acceleration X: ' + acceleration.x + '\n' +
-            'Acceleration Y: ' + acceleration.y + '\n' +
-            'Acceleration Z: ' + acceleration.z + '\n' +
-            'Timestamp: '      + acceleration.timestamp + '\n');
     }
 
     function accelerometerError(e) {
@@ -85,6 +80,7 @@ angular.module('starter.controllers', [])
   function stopSleep() {
     MyData.newEnd(new Date());
     $scope.modal.hide();
+    navigator.accelerometer.clearWatch(watchID);
   }
 
   $scope.createPost = stopSleep;
