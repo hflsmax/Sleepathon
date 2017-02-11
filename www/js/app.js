@@ -117,6 +117,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'ProfileCtrl'
       }
     }
+  })
+
+  .state('tab.leader', {
+    url: '/leader',
+    views: {
+      'tab-leader': {
+        templateUrl: 'templates/tab-leader.html',
+        controller: 'LeaderCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
