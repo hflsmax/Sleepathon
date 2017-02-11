@@ -46,35 +46,40 @@ angular.module('starter.controllers', [])
    });
    myPopup.then(function(post) {
      var newPost = { id: MyInfo.id(), name: MyInfo.name(),
-                       face: MyInfo.face(), post: post}
+                       face: MyInfo.face(), post: post, date: new Date()}
      Posts.add(newPost);
-
+     justSlept = true;
+     setTimeout(function(){justSlept = false}, 3000);
      $ionicModal.fromTemplateUrl('sleepInputModel.html', {
        scope: $scope
      }).then(function(modal) {
-       console.log(modal)
        $scope.modal = modal;
        modal.show();
        MyData.newStart(new Date());
        watchID = navigator.accelerometer.watchAcceleration(accelerometerSuccess,
-                                                       accelerometerError);
+                                                       accelerometerError,
+                                                     { frequency: 50 });
+
      });
    });
+
+
+
    $scope.motionScore = "No data"
+
    function accelerometerSuccess(acceleration) {
-     var score =acceleration.x + acceleration.y + acceleration.z;
-     $scope.motionScore = score;
-     var threshold = 100000;
+     var score = Math.abs(acceleration.z);
+     $scope.motionScore = "zzZ";
+     var threshold = 15;
      if (score > threshold) {
+       if (!justSlept){
        stopSleep();
+       }
      }
-      alert('Acceleration X: ' + acceleration.x + '\n' +
-            'Acceleration Y: ' + acceleration.y + '\n' +
-            'Acceleration Z: ' + acceleration.z + '\n' +
-            'Timestamp: '      + acceleration.timestamp + '\n');
     }
 
-    function accelerometerError() {
+    function accelerometerError(e) {
+      $scope.motionScore = "error" + e;
         alert('onError!');
     }
 
@@ -83,6 +88,7 @@ angular.module('starter.controllers', [])
   function stopSleep() {
     MyData.newEnd(new Date());
     $scope.modal.hide();
+    navigator.accelerometer.clearWatch(watchID);
   }
 
   $scope.createPost = stopSleep;
@@ -105,10 +111,9 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LeaderCtrl', function($scope, Leaders,startFrom3) {
+.controller('LeaderCtrl', function($scope, Leaders) {
     $scope.leaders = Leaders.all();
-    alert("hello");
-    $scope.startFrom3 =leaders.all().slice(3,10);
+    $scope.currentIndex = 0;
 
   })
 

@@ -147,29 +147,28 @@ angular.module('starter.services', [])
   // Some fake testing data
   var posts = [{
     id: 0,
-    name: 'Ben Sparrow',
-    post: 'You on your way?',
-    face: 'img/ben.png'
+    name: 'Max Ma',
+    post: 'Had a Wonderful dream last night.',
+    face: 'img/max.png',
+    date: new Date(2017, 1, 1, 1, 1)
   }, {
     id: 1,
-    name: 'Max Lynx',
-    post: 'Hey, it\'s me',
-    face: 'img/max.png'
+    name: 'Yue Yin',
+    post: 'Did not get enough sleep...',
+    face: 'img/yue.png',
+    date: new Date(2017, 1, 1, 1, 1)
   }, {
     id: 2,
-    name: 'Adam Bradleyson',
-    post: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    post: 'Look at my mukluks!',
-    face: 'img/perry.png'
+    name: 'Toffer',
+    post: 'Sleep Duration: 6 hours',
+    face: 'img/adam.jpg',
+    date: new Date(2017, 1, 1, 1, 1)
   }, {
     id: 4,
-    name: 'Mike Harrington',
-    post: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
+    name: 'Mike Chen',
+    post: 'Sleep Duration: 8 hours',
+    face: 'img/mike.png',
+    date: new Date(2017, 1, 1, 1, 1)
   }];
 
   return {
@@ -178,17 +177,6 @@ angular.module('starter.services', [])
     },
     add: function(post) {
       posts.push(post)
-    },
-    remove: function(chat) {
-      posts.splice(posts.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < posts.length; i++) {
-        if (posts[i].id === parseInt(chatId)) {
-          return posts[i];
-        }
-      }
-      return null;
     }
   };
 })
@@ -199,7 +187,7 @@ angular.module('starter.services', [])
     id : 0,
     name: 'Max Ma',
     current : 10,
-    Longest : 233,
+    longest : 233,
     face: 'img/max.png'
   }, {
     id : 1,
@@ -241,7 +229,7 @@ angular.module('starter.services', [])
     id : 0,
     name: 'Max Ma',
     current : 10,
-    Longest : 233,
+    longest : 233,
     face: 'img/max.png'
   }, {
     id : 1,
