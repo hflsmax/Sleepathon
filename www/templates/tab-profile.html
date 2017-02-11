@@ -1,26 +1,42 @@
+<style>
+img.top {
+    vertical-align: text-top;
+}
+
+img.bottom {
+    vertical-align: text-bottom;
+}
+</style>
+
 <ion-view view-title="Profile">
   <ion-content class="padding">
-  <ion-card>
+  <ion-list>
     <ion-item>
-      <center>
-        <img src="img/Avatar.jpg"style="width:100px;height:100px;">
-        <h1 class="title">Mike Chen</h1>
-      </center>
-      <p class="description">Hello I'm Mike, a Sleepathon usee. I love this App!</p>
-    </ion-item>
-        <div class="col text-center">
-        <button class = "button icon-left clear small">
-          <div> 10 Likes</div>
-        </button>
-      </div>
+
+      <p> <img style="float: left; margin: 0px 10px 0px 0px;" src="img/Avatar.jpg" width="190" />
+      <span style="opacity: 0;"><br /></span>
+    </font><font size=6.5 color="white"><b> Mike Chen</b></font><br /><br /><font size=3 color="white">Hello I'm Mike, a Sleepathon
+      <br /> user. I love this App!</font> <br /><br /><br /><button class="button button-stable button-medium"> View Check In </button>
+        <button class="button button-assertive button-medium"> 50 Likes </button></p>
+
+      <p class="description"></p>
+
+
     <ion-list>
-        <h3 class="title">My Achievements</h3>
+      <p><br /></p>
+        <h1 class="title">My Achievements</h1>
         <ion-item>
-          <img src="img/achievement.png" style="width:50px;height:50px;">
-            First Timer
+          <img src="img/achievement.png" style="float: left; width:50px;height:50px; margin: 5px 0px 0px 0px;">
+            <br />&nbsp; <font size=5> <font color = "white">First Timer</font>  &nbsp;<i>Jan 29th</i> </font>
         </ion-item>
-        <ion-item><img src="img/achievement.png" style="width:50px;height:50px;">Sleep, sleep, and sleep</ion-item>
-        <ion-item><img src="img/achievement.png" style="width:50px;height:50px;">No Coffee Needed</ion-item>
+        <ion-item><img src="img/achievement.png" style="float: left; width:50px;height:50px; margin: 5px 0px 0px 0px;">
+          <br />&nbsp; <font size=5> <font color = "white">Sleep, Sleep, Sleep</font>  &nbsp;<i>Feb 1st</i> </font>
+        </ion-item>
+        <ion-item><img src="img/achievement.png" style="float: left; width:50px;height:50px; margin: 5px 0px 0px 0px;">
+          <br />&nbsp; <font size=5> <font color = "white">No Coffee Needed</font>  &nbsp;<i>Dec 25th</i> </font>
+        </ion-item>
 </ion-list>
+
+
   </ion-content>
 </ion-view>

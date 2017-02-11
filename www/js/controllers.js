@@ -2,7 +2,6 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-
 .controller('ActivityCtrl', function($scope) {})
 
 .controller('SleepCtrl', function($scope, Posts, MyInfo, MyData, $ionicModal, $ionicPopup) {
@@ -91,14 +90,23 @@ angular.module('starter.controllers', [])
 
 .controller('StatisticsCtrl', function($scope) {})
 
-.controller('ProfileCtrl', function($scope) {})
+.controller('ProfileCtrl', function($scope, User) {
 
-.controller('LeaderCtrl', function($scope) {})
+  $scope.profile = User.all();
+
+})
+
+.controller('LeaderCtrl', function($scope, Leaders,startFrom3) {
+    $scope.leaders = Leaders.all();
+    alert("hello");
+    $scope.startFrom3 =leaders.all().slice(3,10);
+
+  })
 
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
+  // when they are recreated or on app start, in, stead of every page change.
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   //

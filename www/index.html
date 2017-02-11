@@ -30,17 +30,16 @@
           el.value = "Enrolled";
         }
         else {el.value = "Enroll Now";}
-
-            }
-
-      function changeColor(el) {
-        if ( el.value === "Enroll Now" ) {
-          el.value = "button-balance";
         }
-        else {el.value = "button-positive";}
 
-            }
+      function changeSelect(e){
+        var value = e.options[e.selectedIndex].value;
+        var text = e.options[e.selectedIndex].text;
+        console.log(value,text)
+      }
     </script>
+
+
   </head>
   <body ng-app="starter">
     <!--

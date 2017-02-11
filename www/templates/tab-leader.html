@@ -1,35 +1,58 @@
-<ion-view view-title="Leader Board">
+<ion-view view-title="Leaderboard">
   <ion-content class="padding">
-  <ion-card>
-    <ion-item>
-      <center>
-        <h1 class="title">Sleeeepers!zzZ</h1>
-      </center>
+
+
+    <p>&nbsp;<b> <font size=10 color = #C8C8C8><br/>Top Sleepers </font></b>
+      <select id = "mySelector" onchange="return changeSelect(this);">
+        <option value ="0" selected>Friend Circle</option>
+        <option value ="1">CMU Students</option>
+        <option value = "2">Pittsburgh Locals</option>
+      </select>
+      <br />
+      <br />
+    </p>
     <ion-list>
         <ion-item>
-        <img ng-src="img/star.png" style="width:40px;height:40px;">
-        <img src="img/max.png" style="width:40px;height:40px;"> Max Ma
-        <p> current sleeping streak: 10 days</p>
-        <p> longest sleeping streak: 233 days</p>
-        </ion-item>
-        <ion-item>
-        <img src="img/star.png" style="width:40px;height:40px;">
-        <img src="img/yue.png" style="width:40px;height:40px;"> Yue Yin
-        <p> current sleeping streak: 8 days</p>
-        <p> longest sleeping streak: 1222 days</p>
-        </ion-item>
-        <ion-item>
-        <img src="img/star.png" style="width:40px;height:40px;">
-        <img src="img/mike.png" style="width:40px;height:40px;"> Mike Chen
-        <p> current sleeping streak: 1 days</p>
-        <p> longest sleeping streak: 18 days</p>
-        </ion-item>
-        <ion-item>
-        <img src="img/4.svg" style="width:40px;height:40px;">
-        <img src="img/toffer.png" style="width:40px;height:40px;"> Toffer Huang
-        <p> current sleeping streak: 0 days</p>
-        <p> longest sleeping streak: 233 days</p>
-        </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-view>
+            <p><img ng-src="img/crown-gold.png" style="width:50px;height:50px;">
+                  <img src="img/max.png" style="width:50px;height:50px;" align="middle">
+                  <font size=9 color="gold"> &nbsp;Max Ma </font></p>
+
+                <p> <font size = 3 color="white">&nbsp;&nbsp;Current sleeping streak: <b>10</b> days</font> <br />
+              <font size = 3 color="white">&nbsp;&nbsp;Longest sleeping streak: <b>233</b>  days</font></p>
+
+                </ion-item>
+                <ion-item>
+                  <p><img ng-src="img/crown-silver.png" style="width:50px;height:50px;">
+                    <img src="img/yue.png" style="width:50px;height:50px;" align="middle">
+                    <font size=9 color="silver">&nbsp;Yue Yin</font></p>
+                    <p> <font size = 3 color="white">&nbsp;&nbsp;Current sleeping streak: <b>8</b> days</font> <br />
+                  <font size = 3 color="white">&nbsp;&nbsp;Longest sleeping streak: <b>1222</b>  days</font></p>
+                </ion-item>
+                <ion-item>
+                  <p><img ng-src="img/crown-brown.png" style="width:50px;height:50px;">
+                    <img src="img/Avatar.jpg" style="width:50px;height:50px;" align="middle">
+                    <font size=9 color="Goldenrod">&nbsp;Mike Chen</font></p>
+                    <p> <font size = 3 color="white">&nbsp;&nbsp;Current sleeping streak: <b>1</b> days</font> <br />
+                  <font size = 3 color="white">&nbsp;&nbsp;Longest sleeping streak: <b>18</b>  days</font></p>
+                </ion-item>
+                <ion-item>
+                  <p><img ng-src="img/4.svg" style="width:50px;height:50px;">
+                    <img src="img/toffer.png" style="width:50px;height:50px;" align="middle">
+                    <font size=9 color="grey">&nbsp;Toffer</font></p>
+                    <p> <font size = 3 color="white">&nbsp;&nbsp;Current sleeping streak: <b>0</b> days</font> <br />
+                  <font size = 3 color="white">&nbsp;&nbsp;Longest sleeping streak: <b>18</b>  days</font></p>
+                </ion-item>
+
+          <ion-item class=" item-avatar " ng-repeat="leader in leaders" type="item-text-wrap" href="#/tab/startFrom3/{{leader.id}}">
+
+              <p><img ng-src="{{leader.face}}" style="width:50px;height:50px;" align="middle"> <font size = 7 color="white">{{leader.name}}</font></p>
+              <p>{{leader.current}}</p>
+              <i class="icon  icon-accessory"></i>
+            </ion-item>
+
+
+        </ion-list>
+      </ion-item>
+
+    </ion-content>
+  </ion-view>

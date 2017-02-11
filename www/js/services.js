@@ -185,4 +185,118 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+.factory('Leaders', function() {
+  var leaders = [{
+    id : 0,
+    name: 'Max Ma',
+    current : 10,
+    Longest : 233,
+    face: 'img/max.png'
+  }, {
+    id : 1,
+    name: 'Mike Chen',
+    current : 1,
+    longest : 29,
+    face: 'img/mike.png'
+  }, {
+    id : 2,
+    name: 'Toffer Huang',
+    current : 0,
+    longest : 199,
+    face: 'img/toffer.png'
+  }, {
+    id : 3,
+    name: 'Yue Yin',
+    current : 8,
+    longest : 10,
+    face: 'img/yue.png'
+  }];
+
+  return {
+    // all: function() {
+    //   return leaders;
+    // },
+    // items.sort(function (a, b) {
+    //   return a.value - b.value;
+    // }
+    get: function(leaderID) {
+      for (var i = 0; i < leaders.length; i++) {
+        if (leaders[i].id === parseInt(leaderID)) {
+          return leaders[i];
+        }
+      }
+      return null;
+    },
+
+    all: function(){
+
+      length = leaders.length;
+
+      var idAndDays = {};
+
+      for (var i = 0; i< length; i++){
+
+        if (!(leaders[i].current in idAndDays)){
+
+
+          idAndDays[leaders[i].current]=[leaders[i].id];
+        }
+        else{
+          idAndDays[leaders[i].current].push(leaders[i].id);
+        }
+      }
+
+
+      var keys = [];
+      var justIds = [];
+      for (var key in idAndDays){
+        keys.push(parseInt(key));
+      }
+      keys.sort(function(a,b){return b-a});
+      var ks = [];
+      for (var a=0; a<keys.length;a++){
+
+        justIds.push(idAndDays[keys[a].toString()]);
+      }
+
+      var TopLeaders = [];
+      for (var index = 0;index<10; index++){
+        for (var x = 0; x < leaders.length; x++) {
+          if (leaders[x].id === parseInt(justIds[index])) {
+            TopLeaders.push(leaders[x]);
+          }
+        }
+    }
+
+    return TopLeaders;
+  }};
+})
+
+.factory('User', function() {
+  var user = [{
+    id : 0,
+    name: 'Mike Chen',
+    current : 1,
+    Longest : 29,
+    face: 'img/mike.png',
+    achivements: ["First Timer", "Sleep, Sleep, and Sleep", "No Coffee Needed"]}
+  ];
+
+  return {
+    all: function() {
+      return user;
+    },
+    
+    get: function(userID) {
+      for (var i = 0; i < user.length; i++) {
+        if (user[i].id === parseInt(userID)) {
+          return user[i];
+        }
+      }
+      return null;
+      }
+
+  };
 });
