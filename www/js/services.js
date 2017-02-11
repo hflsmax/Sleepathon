@@ -90,4 +90,31 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+
+.factory('User', function() {
+  var user = [{
+    id : 0,
+    name: 'Mike Chen',
+    current : 1,
+    Longest : 29,
+    face: 'img/mike.png',
+    achivements: ["First Timer", "Sleep, Sleep, and Sleep", "No Coffee Needed"]}
+  ];
+
+  return {
+    all: function() {
+      return user;
+    },
+    get: function(userID) {
+      for (var i = 0; i < user.length; i++) {
+        if (user[i].id === parseInt(userID)) {
+          return user[i];
+        }
+      }
+      return null;
+      }
+
+  };
 });
