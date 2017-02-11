@@ -60,7 +60,7 @@ angular.module('starter.controllers', [])
                                                        accelerometerError);
      });
    });
-
+   $scope.motionScore = "No data"
    function accelerometerSuccess(acceleration) {
      var score =acceleration.x + acceleration.y + acceleration.z;
      $scope.motionScore = score;
