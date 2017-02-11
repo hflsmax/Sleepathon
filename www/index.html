@@ -6,8 +6,9 @@
     <title></title>
 
     <link href="css/ionic.app.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
     <link href="css/ionicons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -37,6 +38,20 @@
         var text = e.options[e.selectedIndex].text;
         console.log(value,text)
       }
+    </script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDZKsperdrRf6Mo1iCy6-5Ql0CuGy7kgXM",
+        authDomain: "sleepathon-a72da.firebaseapp.com",
+        databaseURL: "https://sleepathon-a72da.firebaseio.com",
+        storageBucket: "sleepathon-a72da.appspot.com",
+        messagingSenderId: "521846883286"
+      };
+      firebase.initializeApp(config);
     </script>
 
 

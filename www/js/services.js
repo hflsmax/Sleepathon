@@ -87,7 +87,6 @@ angular.module('starter.services', [])
       lastObj = sleeps.shift()
       lastObj.end = date
       sleeps.unshift(lastObj)
-      console.log(sleeps)
     }
   }
 })
@@ -130,9 +129,20 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
-      return posts;
+      console.log("before")
+      return firebase.database().ref('global_post/').once('value').then(function(posts) {
+        console.log("get")
+        var array = Object.keys(posts.val()).map(function (key) { return obj[key]; });
+        console.log(posts.val())
+        console.log(array);
+        return array;
+      });
+      // return posts;
     },
     add: function(post) {
+      var postRef = firebase.database().ref('global_post/')
+      var newPostRef = postRef.push();
+      newPostRef.set(post);
       posts.push(post)
     }
   };
