@@ -97,7 +97,16 @@ angular.module('starter.controllers', [])
   $scope.createPost = stopSleep;
 })
 
-.controller('StatisticsCtrl', function($scope) {})
+.controller('StatisticsCtrl', function($scope, MyData, Leaders) {
+  data = MyData.dataCal();
+  $scope.dataSHour = data[0];
+  $scope.dataHour = data [1];
+  $scope.dataMin = data [2];
+  $scope.pmoram = data [3];
+  leaders = Leaders.all ();
+  $scope.sleepStreak = leaders [1].longest;
+
+})
 
 .controller('ProfileCtrl', function($scope, User) {
 

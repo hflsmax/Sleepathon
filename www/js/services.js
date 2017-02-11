@@ -68,6 +68,8 @@ angular.module('starter.services', [])
   }
 })
 
+
+
 .factory('MyData', function() {
   var sleeps = [{
     start: new Date(2017, 1, 1, 1, 1),
@@ -75,8 +77,55 @@ angular.module('starter.services', [])
   },{
     start: new Date(2017, 1, 1, 1, 1),
     end: new Date(2017, 1, 2, 1, 1)
+  },{
+    start: new Date(2017, 1, 2, 23, 30),
+    end: new Date(2017, 1, 3, 6, 50)
+  },{
+    start: new Date(2017, 1, 3, 22, 30),
+    end: new Date(2017, 1, 4, 7, 20)
+  },{
+    start: new Date(2017, 1, 5, 22, 50),
+    end: new Date(2017, 1, 6, 6, 45)
   }]
   return {
+    dataCal: function (){
+      var sleepDatas = []
+      sleepDatas.length = 4;
+      var stTotal = 0;
+      var count = 0;
+      var timeDiff;
+      for (sleep in sleeps){
+        timeDiff = end - start;
+        stTotal += timeDiff*1000/60;
+        count ++;
+      }
+      stTotal /= (60*count);
+      sleepDatas [0] = stTotal;
+      var hourTotal = 0;
+      var minTotal = 0;
+      for (sleep in sleeps){
+        var hour = getHours (start);
+        if (hour < 24) {hour += 24;}
+        var min = getMinutes (start);
+        hourTotal += hour;
+        minTotal += min;
+      }
+      sleepDatas [1] = Math.floor (hourTotal/count);
+      minTotal += (hourTotal/count - sleepDatas [1])*60;
+      hourModifier = Math.floor (minTotal/60);
+      sleepDatas [1] += hourModifier;
+      minTotal %= 60;
+      sleepDatas [2] = minTotal;
+      if (sleepDatas [1] >= 24){
+        sleepDatas [1] %= 24;
+        sleepDatas [3] = "a.m.";
+      }
+      else{
+        sleepDatas [3] = "p.m.";
+      }
+      return sleepDatas;
+    },
+
     all: function() {
       return sleeps;
     },
@@ -220,6 +269,9 @@ angular.module('starter.services', [])
     // items.sort(function (a, b) {
     //   return a.value - b.value;
     // }
+
+
+
     get: function(leaderID) {
       for (var i = 0; i < leaders.length; i++) {
         if (leaders[i].id === parseInt(leaderID)) {
