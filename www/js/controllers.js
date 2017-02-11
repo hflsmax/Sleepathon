@@ -5,7 +5,7 @@ angular.module('starter.controllers', [])
 
 .controller('ActivityCtrl', function($scope) {})
 
-.controller('SleepCtrl', function($scope, Chats, $ionicModal) {
+.controller('SleepCtrl', function($scope, Posts, MyInfo, MyData, $ionicModal, $ionicPopup) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -14,21 +14,79 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.chats = Chats.all();
+  $scope.chats = Posts.all();
   $scope.remove = function(chat) {
-    Chats.remove(chat);
+    Posts.remove(chat);
   };
 
-  $ionicModal.fromTemplateUrl('sleepInputModel.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
 
-  $scope.createPost = function(u) {
-    $scope.contacts.push({ name: u.firstName + ' ' + u.lastName });
+
+ $scope.showPopup = function() {
+   $scope.data = {}
+
+   // An elaborate, custom popup
+   var myPopup = $ionicPopup.show({
+     template: '<input type="text" ng-model="data.wifi">',
+     title: 'Post',
+     scope: $scope,
+     buttons: [
+       { text: 'Cancel' },
+       {
+         text: '<b>Post</b>',
+         type: 'button-positive',
+         onTap: function(e) {
+           if (!$scope.data.wifi) {
+             //don't allow the user to close unless he enters wifi password
+             e.preventDefault();
+           } else {
+             return $scope.data.wifi;
+           }
+         }
+       },
+     ]
+   });
+   myPopup.then(function(post) {
+     var newPost = { id: MyInfo.id(), name: MyInfo.name(),
+                       face: MyInfo.face(), post: post}
+     Posts.add(newPost);
+
+     $ionicModal.fromTemplateUrl('sleepInputModel.html', {
+       scope: $scope
+     }).then(function(modal) {
+       console.log(modal)
+       $scope.modal = modal;
+       modal.show();
+       MyData.newStart(new Date());
+       watchID = navigator.accelerometer.watchAcceleration(accelerometerSuccess,
+                                                       accelerometerError);
+     });
+   });
+
+   function accelerometerSuccess(acceleration) {
+     var score =acceleration.x + acceleration.y + acceleration.z;
+     $scope.motionScore = score;
+     var threshold = 100000;
+     if (score > threshold) {
+       stopSleep();
+     }
+      alert('Acceleration X: ' + acceleration.x + '\n' +
+            'Acceleration Y: ' + acceleration.y + '\n' +
+            'Acceleration Z: ' + acceleration.z + '\n' +
+            'Timestamp: '      + acceleration.timestamp + '\n');
+    }
+
+    function accelerometerError() {
+        alert('onError!');
+    }
+
+  };
+
+  function stopSleep() {
+    MyData.newEnd(new Date());
     $scope.modal.hide();
-  };
+  }
+
+  $scope.createPost = stopSleep;
 })
 
 .controller('StatisticsCtrl', function($scope) {})
