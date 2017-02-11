@@ -85,6 +85,7 @@ angular.module('starter.controllers', [])
   function stopSleep() {
     MyData.newEnd(new Date());
     $scope.modal.hide();
+    navigator.accelerometer.clearWatch(watchID);
   }
 
   $scope.createPost = stopSleep;
