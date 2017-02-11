@@ -2,7 +2,7 @@
   <ion-content class="padding">
 
 
-    <p>&nbsp;<b> <font size=9 color = #C8C8C8><br/>Top Sleepers </font></b>
+    <p>&nbsp;<b> <font size=7 color = #C8C8C8><br/>Top Sleepers </font></b><br/><br/>
       <select id = "mySelector" onchange="return changeSelect(this);">
         <option value ="0" selected>Friend Circle</option>
         <option value ="1">CMU Students</option>
@@ -13,8 +13,8 @@
     </p>
     <ion-list>
           <ion-item ng-repeat="leader in leaders" type="item-text-wrap" href="#/tab/leader/{{leader.id}}">
-              <p>&nbsp;<img ng-src = img/{{$index}}.png style="width:50px;height:50px;">&nbsp;&nbsp;<img ng-src="{{leader.face}}" style="width:50px;height:50px;" align="middle">
-                        &nbsp; &nbsp;<font size = 7 color="white"><b>{{leader.name}}</b></font>
+              <p>&nbsp;<img ng-src = img/{{$index}}.png style="width:30px;height:30px;">&nbsp;&nbsp;<img ng-src="{{leader.face}}" style="width:30px;height:30px;" align="middle">
+                        &nbsp; &nbsp;<font size = 5 color="white"><b>{{leader.name}}</b></font>
                 </p>
               <p><font size = 3 color="white">&nbsp;&nbsp;Current Sleeping Streak: <b>{{leader.current}}</b> days</font>
                 <br />
