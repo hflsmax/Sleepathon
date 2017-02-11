@@ -77,6 +77,46 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'AccountCtrl'
       }
     }
+  })
+
+  .state('tab.activity', {
+    url: '/activity',
+    views: {
+      'tab-activity': {
+        templateUrl: 'templates/tab-activity.html',
+        controller: 'ActivityCtrl'
+      }
+    }
+  })
+
+  .state('tab.sleep', {
+    url: '/sleep',
+    views: {
+      'tab-sleep': {
+        templateUrl: 'templates/tab-sleep.html',
+        controller: 'SleepCtrl'
+      }
+    }
+  })
+
+  .state('tab.statistics', {
+    url: '/statistics',
+    views: {
+      'tab-statistics': {
+        templateUrl: 'templates/tab-statistics.html',
+        controller: 'StatisticsCtrl'
+      }
+    }
+  })
+
+  .state('tab.profile', {
+    url: '/profile',
+    views: {
+      'tab-profile': {
+        templateUrl: 'templates/tab-profile.html',
+        controller: 'ProfileCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
