@@ -46,10 +46,11 @@ angular.module('starter.controllers', [])
      ]
    });
    myPopup.then(function(post) {
+     
      var localTime = new Date()
      var newPost = { id: MyInfo.id(), name: MyInfo.name(),
                        face: MyInfo.face(), post: post, date: localTime.toLocaleTimeString()
-}
+                     }
      Posts.add(newPost);
      justSlept = true;
      setTimeout(function(){justSlept = false}, 3000);

@@ -53,7 +53,7 @@ angular.module('starter.services', [])
   var info = {
     id: 8,
     name: "Max Ma",
-    face: 'img/ben.png'
+    face: 'img/Max.jpg'
   }
   return {
     id: function() {
